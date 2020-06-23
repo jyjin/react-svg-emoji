@@ -4,3 +4,4 @@
 package-lock.json
 yarn-lock.json
 .vscode-upload.json
+.DS_Store
