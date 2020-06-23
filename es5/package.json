@@ -1,0 +1,7 @@
+{
+  "name": "react-svg-emojis-local",
+  "version": "1.0.0",
+  "dependencies": {
+    "react-svg-emojis-local": "file:../es5"
+  }
+}

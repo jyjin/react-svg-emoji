@@ -1,0 +1,6 @@
+/dist
+/es5
+/node_modules
+package-lock.json
+yarn-lock.json
+.vscode-upload.json
