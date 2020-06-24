@@ -1,4 +1,4 @@
-const { src, dest, series, parallel, task } = require('gulp');
+const { src, dest, series, watch, parallel, task } = require('gulp');
 const babel = require('gulp-babel');
 const svg = require('svg-browserify');
 const browserify = require('gulp-browserify');
@@ -52,5 +52,17 @@ function server() {
     }));
 }
 
+function watchSource() {
+  return watch('src-emoji/*', function (cb) {
+    cb()
+  }, 'default');
+}
+
+
+
 task('default', series(parallel(toEs5, copyAssets), toBrowserJavascript, copyPackage))
 task('start', series(parallel(server)))
+task('watch', () => {
+  watch('src-emoji/*', series(parallel(toEs5, copyAssets), toBrowserJavascript,));
+});
+

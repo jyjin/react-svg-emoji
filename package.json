@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "npm run build && npm install --save ./es5 && react-scripts start",
+    "watch": "gulp watch",
     "pub": "npm run build && npm publish",
     "build": "rm -rf ./dist && rm -rf ./es5 && gulp",
     "browserify": "browserify ./es5 -d ./dist",
@@ -19,7 +20,8 @@
   "dependencies": {
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-svg-emojis-local": "file:es5"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
@@ -32,6 +34,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-browserify": "^0.5.1",
     "gulp-copy": "^4.0.1",
+    "gulp-watch": "^5.0.1",
     "gulp-webserver": "^0.9.1",
     "prop-types": "^15.6.0",
     "svg-browserify": "0.0.2",

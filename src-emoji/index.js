@@ -1,1 +1,5 @@
-export { default } from './emoji'
+import Emoji from './emoji';
+
+module.exports = {
+  Emoji,
+}
