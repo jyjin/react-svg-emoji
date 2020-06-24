@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "npm run build && npm install --save ./es5 && react-scripts start",
+    "eject": "react-scripts eject",
     "watch": "gulp watch",
     "pub": "npm run build && npm publish",
     "build": "rm -rf ./dist && rm -rf ./es5 && gulp",
