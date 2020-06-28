@@ -369,7 +369,7 @@ const style = {
 
 
 Name|Type|Desc|
---- | --- | --- | ---
+--- | --- | --- 
 icon | `DOM element`, 默认是一个svg的图标 | 你可以通过此属性定制你的入口按
 onSelect| `Function`, (text, key, data)=>{...}|选择一个表情时的回调函数. `text` 是表情图标的描述多语言text, `key` 是表情图标的唯一键, `data` 是 {key, text}的组合对象
 width| `String`, 默认24px| 单个表情的尺寸
@@ -386,7 +386,7 @@ style.item| `Object`, style={item:{your style}}|单个图标的盒子样式
 
 
 Name|Type|Desc|
---- | --- | --- | ---
+--- | --- | --- 
 insertStr | `Function`, (source , start, target) => { return [插入后的字符串]} | 插入 `target` 字符串到 `source`字符串的`index`位置
 `getCursortPosition` | `Function`, (ele) => { return [位置索引]} | 获取ele元素的光标位置. ele是DOM元素, 你可以通过该document.getElementXXX 或者document.querySelector(XXX)获取你需要操作的DOM元素
 `parseToEmoji` | `Function`, (sourceString, style) => { return [DOM字符串]} | 转换带有一些格式如`[text]` 多语言text的字符串为DOM元素的字符串. `sourceString`需要转化的字符串, `style = {width, height}` 设置转化后展示的大小尺寸
