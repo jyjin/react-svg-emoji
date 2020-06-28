@@ -1,13 +1,14 @@
 {
   "name": "react-svg-emoji",
-  "version": "1.0.5",
+  "version": "1.0.3-beta",
   "description": "React emoji by svg",
   "main": "src/index.js",
   "scripts": {
     "start": "npm run build && npm install --save ./es5 && react-scripts start",
     "eject": "react-scripts eject",
     "watch": "gulp watch",
-    "pub": "npm run build && npm publish",
+    "pub": "npm run build && npm uninstall --save react-svg-emojis-local && npm publish",
+    "beta": "npm run build && npm uninstall --save react-svg-emojis-local &&  npm publish",
     "build": "rm -rf ./dist && rm -rf ./es5 && gulp",
     "browserify": "browserify ./es5 -d ./dist",
     "babel": "babel src -d es5",
@@ -18,12 +19,10 @@
     "react-emoji",
     "react-svg-emoji"
   ],
-  "dependencies": {
+  "devDependencies": {
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "react-scripts": "3.0.1"
-  },
-  "devDependencies": {
+    "react-scripts": "3.0.1",
     "@babel/cli": "^7.10.3",
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
@@ -52,5 +51,8 @@
     "not op_mini all"
   ],
   "author": "jyjin",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react-svg-emojis-local": "file:es5"
+  }
 }
