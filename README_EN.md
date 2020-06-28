@@ -491,7 +491,7 @@ jyjin
 
 # Change Log
 
-- 1.1.1 / 1.1.1-beta 2020.06.28 
+- 1.1.1~1.1.2 / 1.1.1-beta~1.1.2-beta 2020.06.28 
 
   Update by jyjin
 

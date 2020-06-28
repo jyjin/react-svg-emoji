@@ -363,7 +363,7 @@ const style = {
 
 # API
 
-- [Document English](https://github.com/jyjin/react-svg-emoji/blob/develop/README_.md)
+- [Document English](https://github.com/jyjin/react-svg-emoji/blob/develop/README_EN.md)
 
 ### 1. 组件API
 
@@ -484,8 +484,7 @@ jyjin
 
 # Change Log
 
-
-- 1.1.1 / 1.1.1-beta 2020.06.28 
+- 1.1.1~1.1.2 / 1.1.1-beta~1.1.2-beta 2020.06.28 
 
   Update by jyjin
 
