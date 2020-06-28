@@ -4,6 +4,7 @@
 .npmignore
 package-lock.json
 yarn-lock.json
+public
 src
 src-emoji
 gulpfile.js

@@ -1,6 +1,6 @@
 {
   "name": "react-svg-emoji",
-  "version": "1.0.3-beta",
+  "version": "1.0.4-beta",
   "description": "React emoji by svg",
   "main": "src/index.js",
   "scripts": {
@@ -50,9 +50,8 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "github": "https://github.com/jyjin/react-svg-emoji",
   "author": "jyjin",
   "license": "MIT",
-  "dependencies": {
-    "react-svg-emojis-local": "file:es5"
-  }
+  "dependencies": {}
 }

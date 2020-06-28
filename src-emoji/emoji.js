@@ -21,7 +21,7 @@ const log = (info, data) => {
  * @param {开始索引号} start 
  * @param {待插入的字符串} target 
  */
-export const insertStr = (soure, start, target) => {
+export const insertStr = (soure = '', start, target) => {
   return soure.slice(0, start) + target + soure.slice(start);
 }
 
