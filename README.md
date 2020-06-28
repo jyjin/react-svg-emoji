@@ -12,7 +12,7 @@ npm install react-svg-emoji --save-dev
 ```
 # 使用
 ```
-import ReactSvgEmoji from "react-svg-emojis/es5/index";
+import ReactSvgEmoji from "react-svg-emoji/es5";
 
 const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;
 
@@ -84,6 +84,283 @@ render(){
 }
 ```
 
+### 1.使用默认入口及样式
+
+```
+import ReactSvgEmoji from "react-svg-emoji/es5";
+
+const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;
+
+...
+
+onSelectDemo1(text, key, data) {
+  var index = getCursortPosition(document.querySelector('#input1'))
+  var value = insertStr(this.state.value1, index, text)
+  var html = parseToEmoji(value)
+  this.setState({
+    value1: value,
+    html1: html,
+  })
+}
+
+onChange1(e) {
+  var html = parseToEmoji(e.target.value)
+  this.setState({
+    value1: e.target.value,
+    html1: html,
+  })
+}
+
+...
+
+const style = {
+  pop: {
+    width: '200px'
+  },
+}
+
+...
+
+<Emoji
+  style={style}
+  onSelect={this.onSelectDemo1.bind(this)}
+/>
+
+<input
+  id='input1'
+  style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+  value={this.state.value1}
+  onChange={this.onChange1.bind(this)}
+></input>
+
+<div style={{ margin: '10px' }} >
+  转化展示效果：
+<p dangerouslySetInnerHTML={{ __html: this.state.html1 }} />
+```
+
+效果
+
+![默认样式](./public/1.png)
+
+
+### 2.定制入口启动按钮
+
+定制一个button按钮作为入口
+
+```
+import ReactSvgEmoji from "react-svg-emoji/es5";
+
+const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;              
+
+...
+
+onSelectDemo2(text, key, data) {
+  var index = getCursortPosition(document.querySelector('#input2'))
+  var value = insertStr(this.state.value2, index, text)
+  var html = parseToEmoji(value)
+  this.setState({
+    value2: value,
+    html2: html,
+  })
+}
+
+onChange2(e) {
+  var html = parseToEmoji(e.target.value)
+  this.setState({
+    value2: e.target.value,
+    html2: html,
+  })
+}
+       
+...
+
+const style = {
+  pop: {
+    width: '200px'
+  },
+}
+
+...
+
+<Emoji
+  icon={<span> 表情</span>}
+  style={style}
+  onSelect={this.onSelectDemo2.bind(this)}
+/>
+
+<input
+  id='input2'
+  style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+  value={this.state.value2}
+  onChange={this.onChange2.bind(this)}
+></input>
+
+<div style={{ margin: '10px' }} >
+  转化展示效果：
+  <p dangerouslySetInnerHTML={{ __html: this.state.html2 }} />
+</div>
+```
+
+效果
+![定制启动入口按钮](./public/2.png)
+
+### 3.定制样式
+
+改变尺寸和布局
+
+```
+import ReactSvgEmoji from "react-svg-emoji/es5";
+
+const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;   
+
+...
+
+onSelectDemo3(text, key, data) {
+  var index = getCursortPosition(document.querySelector('#input3'))
+  var value = insertStr(this.state.value3, index, text)
+  var html = parseToEmoji(value)
+  this.setState({
+    value3: value,
+    html3: html,
+  })
+}
+
+onChange3(e) {
+  var html = parseToEmoji(e.target.value)
+  this.setState({
+    value3: e.target.value,
+    html3: html,
+  })
+}
+       
+...
+
+const style = {
+  icon: {
+    width: '50px',
+    height: '50px',
+  },
+  pop: {
+    position: 'absolute',
+    padding: '10px',
+    width: '800px',
+    top: '25px',
+    hover: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'flex-start',
+      boxShadow: 'none',
+      border:'3px solid lightgreen'
+    }
+  },
+  item: {
+    width: '12px',
+    height: '12px',
+    margin: '2px',
+  }
+}
+
+...
+
+<Emoji
+  icon={<span> 表情</span>}
+  style={style}
+  onSelect={this.onSelectDemo3.bind(this)}
+/>
+
+<input
+  id='input3'
+  style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+  value={this.state.value3}
+  onChange={this.onChange3.bind(this)}
+></input>
+
+<div style={{ margin: '10px' }} >
+  转化展示效果：
+  <p dangerouslySetInnerHTML={{ __html: this.state.html2 }} />
+</div>
+```
+
+效果
+
+![改变尺寸、宽度](./public/3.png)
+
+### 4.直接展示选择层
+
+```
+import ReactSvgEmoji from "react-svg-emoji/es5";
+
+const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;              
+    
+...
+
+onSelectDemo4(text, key, data) {
+  var index = getCursortPosition(document.querySelector('#input2'))
+  var value = insertStr(this.state.value4, index, text)
+  var html = parseToEmoji(value)
+  this.setState({
+    value4: value,
+    html4: html,
+  })
+}
+
+onChange4(e) {
+  var html = parseToEmoji(e.target.value)
+  this.setState({
+    value4: e.target.value,
+    html4: html,
+  })
+}
+
+...
+
+const style = {
+  pop: {
+    position: 'relative',
+    padding: '10px',
+    width: '400px',
+    hover: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'flex-start',
+      boxShadow: 'none',
+      border: '1px solid lightgreen'
+    }
+  },
+}
+
+...
+
+<Emoji
+  model="manual"
+  visible={!!this.state.visible}
+  style={style4}
+  onSelect={this.onSelectDemo4.bind(this)}
+/>
+
+<button onClick={()=>{
+  this.setState({
+    visible: !this.state.visible
+  })
+}}>打开、关闭表情</button>
+
+<input
+  id='input4'
+  style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+  value={this.state.value4}
+  onChange={this.onChange4.bind(this)}
+></input>
+
+<div style={{ margin: '10px' }} >
+  转化展示效果：
+  <p dangerouslySetInnerHTML={{ __html: this.state.html2 }} />
+</div>
+```
+
+效果
+
+![直接展示选择层](./public/4.png)
+
 # API
 
 ### 1. 组件API
@@ -112,7 +389,7 @@ insertStr | `Function`, (source , start, target) => { return [插入后的字符
 `getCursortPosition` | `Function`, (ele) => { return [位置索引]} | 获取ele元素的光标位置. ele是DOM元素, 你可以通过该document.getElementXXX 或者document.querySelector(XXX)获取你需要操作的DOM元素
 `parseToEmoji` | `Function`, (sourceString, style) => { return [DOM字符串]} | 转换带有一些格式如`[text]` 多语言text的字符串为DOM元素的字符串. `sourceString`需要转化的字符串, `style = {width, height}` 设置转化后展示的大小尺寸
 
-> 包中默认的样式 
+### 源码中使用的默认的样式 
 
 ```
 /**
@@ -197,7 +474,7 @@ npm run watch
 
 demo示例如下
 
-![Image text](./public/example.png)
+![DEMO](./public/example.png)
 
 # Author
 
