@@ -1,5 +1,6 @@
-import Emoji from './emoji';
+import {Emoji, parseToEmoji} from './emoji';
 
 module.exports = {
   Emoji,
+  parseToEmoji,
 }
