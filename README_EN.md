@@ -13,7 +13,7 @@ npm install react-svg-emoji --save-dev
 # Useage
 
 ```
-import ReactSvgEmoji from "react-svg-emojis-local/index";
+import ReactSvgEmoji from "react-svg-emojis/es5/index";
 
 const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;
 
@@ -89,6 +89,7 @@ render(){
 
 ### 1. Component Api
 
+
 Name|Type|Desc|
 --|--|--|--
 icon | `DOM element`, default is a SVG element | you can customlize the enterance by this
@@ -104,6 +105,8 @@ style.pop| `Object`, style={pop:{your style}}|emoji list style, style.emoji sing
 style.item| `Object`, style={item:{your style}}|emoji list style, style.emoji single emoji wrap style
 
 ### 2.Tool Function Api
+
+
 Name|Type|Desc|
 --|--|--|--
 insertStr | `Function`, (source , start, target) => { return [new String]} | insert `target` to `index` of `string`

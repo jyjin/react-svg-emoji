@@ -12,7 +12,7 @@ npm install react-svg-emoji --save-dev
 ```
 # 使用
 ```
-import ReactSvgEmoji from "react-svg-emojis-local/index";
+import ReactSvgEmoji from "react-svg-emojis/es5/index";
 
 const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;
 
@@ -88,6 +88,7 @@ render(){
 
 ### 1. 组件API
 
+
 Name|Type|Desc|
 --|--|--|--
 icon | `DOM element`, 默认是一个svg的图标 | 你可以通过此属性定制你的入口按
@@ -103,6 +104,8 @@ style.pop| `Object`, style={pop:{your style}}|图标列表盒子的样式
 style.item| `Object`, style={item:{your style}}|单个图标的盒子样式
 
 ### 2.Tool Function Api
+
+
 Name|Type|Desc|
 --|--|--|--
 insertStr | `Function`, (source , start, target) => { return [插入后的字符串]} | 插入 `target` 字符串到 `source`字符串的`index`位置

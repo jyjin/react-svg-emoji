@@ -1,8 +1,12 @@
 {
   "name": "react-svg-emoji",
-  "version": "1.0.4-beta",
+  "version": "1.0.5-beta",
   "description": "React emoji by svg",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jyjin/react-svg-emoji.git"
+  },
   "scripts": {
     "start": "npm run build && npm install --save ./es5 && react-scripts start",
     "eject": "react-scripts eject",
@@ -50,7 +54,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "github": "https://github.com/jyjin/react-svg-emoji",
   "author": "jyjin",
   "license": "MIT",
   "dependencies": {}
