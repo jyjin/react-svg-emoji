@@ -201,7 +201,22 @@ jyjin
 
 # Change Log
 
-- 2020.06.23 create by jyjin
+- 2020.06.23 
+
+  create by jyjin
+
+  + 框架搭建、配置
+
+  + 流程代码
+
+- 2020.06.28 
+
+  update by jyjin
+  完整功能版
+  + 添加icon
+  + 整理style接口
+  + bug修复
+  + 整理README
 
 
 # Listense

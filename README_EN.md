@@ -204,7 +204,24 @@ jyjin
 
 # Change Log
 
-- 2020.06.23 create by jyjin
+- 2020.06.23 
+
+  create by jyjin
+
+  + frame create/ setting add
+
+  + workflow coding
+
+- 2020.06.28 
+
+  update by jyjin
+  
+  First release verson
+
+  + add icon api
+  + improve styl api
+  + bug fix
+  + improve README
 
 
 # Listense
