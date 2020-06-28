@@ -195,6 +195,10 @@ npm start
 npm run watch
 ```
 
+demo示例如下
+
+![Image text](./public/example.png)
+
 # Author
 
 jyjin

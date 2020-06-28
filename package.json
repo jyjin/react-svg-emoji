@@ -56,5 +56,7 @@
   ],
   "author": "jyjin",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "react-svg-emojis-local": "file:es5"
+  }
 }

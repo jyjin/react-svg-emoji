@@ -198,6 +198,11 @@ Or you want edit this code by watching
 npm run watch
 ```
 
+
+demo run like follow pic:
+
+![Image text](./public/example.png)
+
 # Author
 
 jyjin
