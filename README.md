@@ -140,7 +140,7 @@ const style = {
 
 效果
 
-![默认样式](./public/1.png)
+![默认样式](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/1.png)
 
 
 ### 2.定制入口启动按钮
@@ -202,7 +202,7 @@ const style = {
 ```
 
 效果
-![定制启动入口按钮](./public/2.png)
+![定制启动入口按钮](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/2.png)
 
 ### 3.定制样式
 
@@ -283,7 +283,7 @@ const style = {
 
 效果
 
-![改变尺寸、宽度](./public/3.png)
+![改变尺寸、宽度](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/3.png)
 
 ### 4.直接展示选择层
 
@@ -359,15 +359,17 @@ const style = {
 
 效果
 
-![直接展示选择层](./public/4.png)
+![直接展示选择层](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/4.png)
 
 # API
+
+- [Document English](https://github.com/jyjin/react-svg-emoji/blob/develop/README_.md)
 
 ### 1. 组件API
 
 
 Name|Type|Desc|
---|--|--|--
+--- | --- | --- | ---
 icon | `DOM element`, 默认是一个svg的图标 | 你可以通过此属性定制你的入口按
 onSelect| `Function`, (text, key, data)=>{...}|选择一个表情时的回调函数. `text` 是表情图标的描述多语言text, `key` 是表情图标的唯一键, `data` 是 {key, text}的组合对象
 width| `String`, 默认24px| 单个表情的尺寸
@@ -384,7 +386,7 @@ style.item| `Object`, style={item:{your style}}|单个图标的盒子样式
 
 
 Name|Type|Desc|
---|--|--|--
+--- | --- | --- | ---
 insertStr | `Function`, (source , start, target) => { return [插入后的字符串]} | 插入 `target` 字符串到 `source`字符串的`index`位置
 `getCursortPosition` | `Function`, (ele) => { return [位置索引]} | 获取ele元素的光标位置. ele是DOM元素, 你可以通过该document.getElementXXX 或者document.querySelector(XXX)获取你需要操作的DOM元素
 `parseToEmoji` | `Function`, (sourceString, style) => { return [DOM字符串]} | 转换带有一些格式如`[text]` 多语言text的字符串为DOM元素的字符串. `sourceString`需要转化的字符串, `style = {width, height}` 设置转化后展示的大小尺寸
@@ -474,7 +476,7 @@ npm run watch
 
 demo示例如下
 
-![DEMO](./public/example.png)
+![DEMO](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/example.png)
 
 # Author
 
@@ -482,15 +484,14 @@ jyjin
 
 # Change Log
 
-- 2020.06.23 
+- 1.0.0-1.0.5 / 1.0.0-beta~1.0.5-beta 2020.06.23 
 
   create by jyjin
 
   + 框架搭建、配置
-
   + 流程代码
 
-- 2020.06.28 
+- 1.1.0 / 1.1.0-beta~1.1.1-beta 2020.06.28 
 
   update by jyjin
   完整功能版
@@ -498,6 +499,7 @@ jyjin
   + 整理style接口
   + bug修复
   + 整理README
+
 
 
 # Listense

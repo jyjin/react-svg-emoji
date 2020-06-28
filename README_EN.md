@@ -10,6 +10,7 @@ A react emoji package by svg.
 ```
 npm install react-svg-emoji --save-dev
 ```
+
 # Useage
 
 ```
@@ -144,7 +145,7 @@ const style = {
 
 效果
 
-![Default style](./public/1.png)
+![Default style](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/1.png)
 
 
 ### 2.Customize entrance 
@@ -207,7 +208,7 @@ const style = {
 ```
 
 效果
-![Customize a entrance](./public/2.png)
+![Customize a entrance](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/2.png)
 
 ### 3.Customize styles
 
@@ -291,7 +292,7 @@ const style = {
 
 效果
 
-![Change size](./public/3.png)
+![Change size](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/3.png)
 
 ### 4.Show pop selector panel directly
 
@@ -362,15 +363,17 @@ const style = {
 
 Effect pic
 
-![Show selector panel directly](./public/4.png)
+![Show selector panel directly](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/4.png)
 
 # Api
+
+- [中文文档](https://github.com/jyjin/react-svg-emoji/blob/develop/README.md)
 
 ### 1. Component Api
 
 
-Name|Type|Desc|
---|--|--|--
+Name | Type | Desc |
+--- | --- | --- | ---
 icon | `DOM element`, default is a SVG element | you can Customize the enterance by this
 onSelect| `Function`, (text, key, data)=>{...}|callback when select a emoji. `text` is emoji text desc, `key` is the unique key, `data` is {key, text}
 width| `String`, default is 24px| emoji item size 
@@ -387,7 +390,7 @@ style.item| `Object`, style={item:{your style}}|emoji list style, style.emoji si
 
 
 Name|Type|Desc|
---|--|--|--
+---|---|---|---
 insertStr | `Function`, (source , start, target) => { return [new String]} | insert `target` to `index` of `string`
 `getCursortPosition` | `Function`, (ele) => { return [index]} | Get cursor postion for your element need insert the emoji. ele is a dom element, you can get by document.getElementXXX or document.querySelector(XXX)
 `parseToEmoji` | `Function`, (sourceString, style) => { return [DOM string]} | Transform the string which contain some `[text]` emoji to DOM element string. `sourceString` is the target string need to tranform, `style = {width, height}` can set the size before you show emoji.
@@ -480,7 +483,7 @@ npm run watch
 
 demo run like follow pic:
 
-![DEMO](./public/example.png)
+![DEMO](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/example.png)
 
 # Author
 
@@ -488,7 +491,7 @@ jyjin
 
 # Change Log
 
-- 2020.06.23 
+- 1.0.0-1.0.5 / 1.0.0-beta~1.0.5-beta 2020.06.23 
 
   create by jyjin
 
@@ -496,7 +499,7 @@ jyjin
 
   + workflow coding
 
-- 2020.06.28 
+- 1.1.0 / 1.1.0-beta~1.1.1-beta 2020.06.28 
 
   update by jyjin
   
