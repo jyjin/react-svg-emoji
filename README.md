@@ -368,7 +368,7 @@ const style = {
 ### 1. 组件API
 
 
-Name|Type|Desc|
+Name|Type|Desc
 --- | --- | --- 
 icon | `DOM element`, 默认是一个svg的图标 | 你可以通过此属性定制你的入口按
 onSelect| `Function`, (text, key, data)=>{...}|选择一个表情时的回调函数. `text` 是表情图标的描述多语言text, `key` 是表情图标的唯一键, `data` 是 {key, text}的组合对象
@@ -484,22 +484,32 @@ jyjin
 
 # Change Log
 
-- 1.0.0-1.0.5 / 1.0.0-beta~1.0.5-beta 2020.06.23 
 
-  create by jyjin
+- 1.1.1 / 1.1.1-beta 2020.06.28 
 
-  + 框架搭建、配置
-  + 流程代码
+  Update by jyjin
 
-- 1.1.0 / 1.1.0-beta~1.1.1-beta 2020.06.28 
+  完善文档
+  + 在线图片引用
+  + github readme table修复
+  + 中英文档切换
 
-  update by jyjin
+- 1.1.0 / 1.1.0-beta 2020.06.28 
+
+  Update by jyjin
+
   完整功能版
   + 添加icon
   + 整理style接口
   + bug修复
   + 整理README
 
+- 1.0.0~1.0.5 / 1.0.0-beta~1.0.5-beta 2020.06.23 
+
+  Create by jyjin
+
+  + 框架搭建、配置
+  + 流程代码
 
 
 # Listense
