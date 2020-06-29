@@ -104,7 +104,7 @@ import popcorn from './svg/popcorn.svg'
 
 import sun from './svg/sun.svg'
 
-// import trumpet from './svg/trumpet.svg'
+import trumpet from './svg/trumpet.svg'
 
 import strong from './svg/strong.svg'
 
@@ -217,7 +217,7 @@ export default {
 
   sun,
 
-  // trumpet,
+  trumpet,
 
   strong,
 

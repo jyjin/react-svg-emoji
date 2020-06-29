@@ -365,6 +365,68 @@ Effect pic
 
 ![Show selector panel directly](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/4.png)
 
+
+### 5.i18n
+
+```
+import ReactSvgEmoji from "react-svg-emoji/es5";
+
+const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;           
+    
+...
+
+state = {
+  lang: 'zh_CN'
+}
+
+...
+
+onSelect(text, key, data) {
+  var index = getCursortPosition(document.querySelector('#input'))
+  var value = insertStr(this.state.value, index, text)
+  var html = parseToEmoji(value, null, this.state.lang)
+  this.setState({
+    value: value,
+    html: html,
+  })
+}
+
+onChange(e) {
+  var html = parseToEmoji(e.target.value)
+  this.setState({
+    value: e.target.value,
+    html: html,
+  })
+}
+
+
+
+...
+
+<Emoji
+  lang={this.state.lang}
+  onSelect={this.onSelect.bind(this)}
+/>
+
+<button style={{ margin: '10px' }}
+onClick={() => {
+  this.setState({
+    lang: this.state.lang === 'zh_CN' ? 'en_US' : 'zh_CN'
+  })
+}}>{this.state.lang === 'zh_CN' ? 'English' : '中文'}</button>
+
+<input
+  id='input'
+  style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+  value={this.state.value}
+  onChange={this.onChange.bind(this)}>
+</input>
+```
+
+效果
+
+![Language Switch](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/5.png)
+
 # Api
 
 - [中文文档](https://github.com/jyjin/react-svg-emoji/blob/develop/README.md)
@@ -374,6 +436,7 @@ Effect pic
 
 Name | Type | Desc
 --- | --- | --- 
+lang|`String`, default is 'zh_CN' (so far only support[`zh_CN`,`en_US`])| you can set language with this prop
 icon | `DOM element`, default is a SVG element | you can Customize the enterance by this
 onSelect| `Function`, (text, key, data)=>{...}|callback when select a emoji. `text` is emoji text desc, `key` is the unique key, `data` is {key, text}
 width| `String`, default is 24px| emoji item size 
@@ -393,7 +456,7 @@ Name|Type|Desc
 --- | --- | ---
 insertStr | `Function`, (source , start, target) => { return [new String]} | insert `target` to `index` of `string`
 `getCursortPosition` | `Function`, (ele) => { return [index]} | Get cursor postion for your element need insert the emoji. ele is a dom element, you can get by document.getElementXXX or document.querySelector(XXX)
-`parseToEmoji` | `Function`, (sourceString, style) => { return [DOM string]} | Transform the string which contain some `[text]` emoji to DOM element string. `sourceString` is the target string need to tranform, `style = {width, height}` can set the size before you show emoji.
+`parseToEmoji` | `Function`, (sourceString, style, lang) => { return [DOM string]} | Transform the string which contain some `[text]` emoji to DOM element string. `sourceString` is the target string need to tranform, `style = {width, height}` can set the size before you show emoji. `lang` set language when parsing, default is 'zh_CN'
 
 
 > package default style 
@@ -491,6 +554,14 @@ jyjin
 
 # Change Log
 
+- 1.1.2-beta 2020.06.29 
+
+  Update by jyjin
+
+  bug fix + add fun
+  + fix ok trumpet svg
+  + extend i18n support
+
 - 1.1.1 / 1.1.1-beta 2020.06.28 
 
   Update by jyjin
@@ -511,7 +582,7 @@ jyjin
   + bug fix
   + improve README
 
-- 1.0.0~1.0.5 / 1.0.0-beta~1.0.5-beta 2020.06.23 
+- 1.0.0 - 1.0.5 / 1.0.0-beta - 1.0.5-beta 2020.06.23 
 
   Create by jyjin
 
