@@ -547,6 +547,13 @@ demo示例如下
 jyjin
 
 # Change Log
+- 1.1.3-beta - 1.1.5-beta 2020.06.29 
+
+  Update by jyjin
+
+  移动端兼容
+  + embed 更新为 img渲染
+
 - 1.1.2-beta 2020.06.29 
 
   Update by jyjin

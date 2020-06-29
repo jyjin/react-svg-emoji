@@ -75,13 +75,11 @@ export const parseToEmoji = (sourceStr, style = { width: '24px', height: '24px' 
       const index = Object.values(emojis).findIndex(o => o === text)
       const key = Object.keys(emojis)[index]
       const _target = `
-      <embed 
+      <img 
         src="${emojiSvgs[key.replace('-', '_')]}"
         style="pointerEvents:none"
         width="${style.width}"
         height=""${style.height}"
-        type="image/svg+xml"
-        pluginspage="http://www.adobe.com/svg/viewer/install/" 
       />
     `
       // log('sourceStr == ', sourceStr)

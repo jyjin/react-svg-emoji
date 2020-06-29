@@ -193,8 +193,9 @@ class Emoji extends React.Component {
                 style={{ pointerEvents: 'none' }}
                 width={props.iconWidth}
                 height={props.iconHeight}
-                type="image/svg+xml"
-                pluginspage="http://www.adobe.com/svg/viewer/install/" />}
+                // type="image/svg+xml"
+                // pluginspage="http://www.adobe.com/svg/viewer/install/" 
+              />}
           </span>
         }
 
@@ -221,12 +222,13 @@ class Emoji extends React.Component {
               onMouseLeave={this.onMouseLeave.bind(this, item)}
               onClick={this.onSelect.bind(this, { type: item, text: emojis[item] })}
             >
-              <embed src={emojiSvgs[item.replace('-', '_')]}
+              <img src={emojiSvgs[item.replace('-', '_')]}
                 style={{ pointerEvents: 'none' }}
                 width={props.width}
                 height={props.height}
-                type="image/svg+xml"
-                pluginspage="http://www.adobe.com/svg/viewer/install/" />
+              // type="image/svg+xml"
+              // pluginspage="http://www.adobe.com/svg/viewer/install/"
+              />
             </span>
           })}
         </div>
