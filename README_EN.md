@@ -553,6 +553,13 @@ demo run like follow pic:
 jyjin
 
 # Change Log
+- 1.1.6-beta 2020.06.30 
+
+  Update by jyjin
+
+  Improve style
+  + add element class name, better for user rewrite
+
 - 1.1.3-beta - 1.1.5-beta 2020.06.29 
 
   Update by jyjin

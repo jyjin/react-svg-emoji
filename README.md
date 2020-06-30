@@ -547,6 +547,13 @@ demo示例如下
 jyjin
 
 # Change Log
+- 1.1.6-beta 2020.06.30 
+
+  Update by jyjin
+
+  完善样式
+  + 增加标签样式标记类名，方便用户覆盖
+
 - 1.1.3-beta - 1.1.5-beta 2020.06.29 
 
   Update by jyjin

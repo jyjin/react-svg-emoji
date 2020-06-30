@@ -182,7 +182,7 @@ class Emoji extends React.Component {
           null :
           <span
             key={'emoji-start'}
-            className="react-svg-emoji-pop"
+            className="react-svg-emoji-icon"
             style={iconStyle}
             text={'emoji'}
             onClick={this.onOpen.bind(this)}
@@ -193,14 +193,17 @@ class Emoji extends React.Component {
                 style={{ pointerEvents: 'none' }}
                 width={props.iconWidth}
                 height={props.iconHeight}
-                // type="image/svg+xml"
-                // pluginspage="http://www.adobe.com/svg/viewer/install/" 
+              // type="image/svg+xml"
+              // pluginspage="http://www.adobe.com/svg/viewer/install/" 
               />}
           </span>
         }
 
         {/* 表情选择框 */}
-        <div style={poptyle}>
+        <div
+          className="react-svg-emoji-pop"
+          style={poptyle}
+        >
           <style>
             {`
             .react-svg-emoji-item:hover{
