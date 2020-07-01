@@ -574,16 +574,11 @@ jyjin
 
   Update by jyjin
 
-<<<<<<< HEAD
-- 1.1.1~1.1.2 / 1.1.1-beta~1.1.2-beta 2020.06.28 
-=======
   bug修复 + 更新功能
   + 修复ok trumpet图标
   + 增加多语言支持
 
 - 1.1.1 / 1.1.1-beta 2020.06.28 
->>>>>>> develop
-
   Update by jyjin
 
   完善文档
