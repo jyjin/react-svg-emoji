@@ -1,55 +1,14 @@
 import React from 'react';
-import PropTypes, { nominalTypeHack } from 'prop-types';
+import PropTypes from 'prop-types';
 import LANG from './locale';
 import { default as emojiSvgs } from './map';
-import IconEmoji from './svg/emojipacks.svg'
-
-const emojis = LANG['zh_CN']
-
-/**
- * 日志打印
- * @param {*} info 
- * @param {*} data 
- */
-const log = (info, data) => {
-  console.log(`[react-svg emoji] ${info}`, data)
-}
-
-/**
- * 
- * @param {原字符串} soure 
- * @param {开始索引号} start 
- * @param {待插入的字符串} target 
- */
-export const insertStr = (soure = '', start, target) => {
-  return soure.slice(0, start) + target + soure.slice(start);
-}
-
-/**
- * 获取ele节点的光标位置
- * @param {dom节点} ele 
- */
-export const getCursortPosition = ele => {
-  var cursorIndex = 0;
-  if (document.selection) {
-    // IE Support
-    ele.focus();
-    var range = document.selection.createRange();
-    range.moveStart('character', -ele.value.length);
-    cursorIndex = range.text.length;
-  } else if (ele.selectionStart || ele.selectionStart == 0) {
-    // another support
-    cursorIndex = ele.selectionStart;
-  }
-  return cursorIndex;
-}
-
-
+import IconEmoji from './svg/emojipacks.svg';
 
 /**
  * 默认样式
  */
 const defaultProps = {
+  lang: 'zh_CN',
   width: 24,
   height: 24,
   iconWidth: 20,
@@ -112,51 +71,6 @@ const propTypes = {
 }
 
 /**
- * 将含表情的字符串转dom字符串
- * @param {含表情字符串的原字符串} sourceStr 
- * @param {表情显示样式} style = {width, height} 
- */
-export const parseToEmoji = (sourceStr, style = { width: '24px', height: '24px' }) => {
-
-  if (!sourceStr) {
-    console.error('[React svg emoji] parameter is required, but it is ' + sourceStr + ' now !')
-    return ''
-  }
-
-  const reg = /\[(.+?)\]/g;
-  const targets = sourceStr.match(reg)
-
-  targets && targets.length && targets.map(item => {
-
-    const text = item.substring(1, item.length - 1)
-    const isEmoji = Object.values(emojis).includes(text)
-
-    if (isEmoji) {
-
-      const index = Object.values(emojis).findIndex(o => o === text)
-      const key = Object.keys(emojis)[index]
-      const _target = `
-      <embed 
-        src="${emojiSvgs[key.replace('-', '_')]}"
-        style="pointerEvents:none"
-        width="${style.width}"
-        height=""${style.height}"
-        type="image/svg+xml"
-        pluginspage="http://www.adobe.com/svg/viewer/install/" 
-      />
-    `
-      // log('sourceStr == ', sourceStr)
-      // log('item == ', item)
-      // log('target == ', _target)
-      sourceStr = sourceStr.replace(item, _target)
-    }
-  })
-
-  return sourceStr
-
-}
-
-/**
  * 渲染表情组件
  */
 class Emoji extends React.Component {
@@ -164,8 +78,20 @@ class Emoji extends React.Component {
   constructor(props) {
     super(props);
 
+    this.emojis = LANG[this.props.lang || 'zh_CN']
+
     this.state = {
+      lang: this.props.lang,
       open: (this.props.model === 'manual' && this.props.visible) || false,
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.lang !== this.props.lang) {
+      this.emojis = LANG[nextProps.lang]
+      this.setState({
+        lang: nextProps.lang
+      })
     }
   }
 
@@ -227,6 +153,7 @@ class Emoji extends React.Component {
     let itemtyle = { ...defaultProps.style.item, ...this.props.style.item || {} }
     let { style, ...props } = { ...defaultProps, ...this.props }
     let { hover, ...other } = poptyle
+    const emojis = this.emojis
 
     if (this.props.model && this.props.model === 'manual') {
       // 自定义入口
@@ -255,24 +182,28 @@ class Emoji extends React.Component {
           null :
           <span
             key={'emoji-start'}
-            className="react-svg-emoji-pop"
+            className="react-svg-emoji-icon"
             style={iconStyle}
             text={'emoji'}
             onClick={this.onOpen.bind(this)}
           >
             {this.props.icon ?
               this.props.icon :
-              <embed src={IconEmoji}
+              <img src={IconEmoji}
                 style={{ pointerEvents: 'none' }}
                 width={props.iconWidth}
                 height={props.iconHeight}
-                type="image/svg+xml"
-                pluginspage="http://www.adobe.com/svg/viewer/install/" />}
+              // type="image/svg+xml"
+              // pluginspage="http://www.adobe.com/svg/viewer/install/" 
+              />}
           </span>
         }
 
         {/* 表情选择框 */}
-        <div style={poptyle}>
+        <div
+          className="react-svg-emoji-pop"
+          style={poptyle}
+        >
           <style>
             {`
             .react-svg-emoji-item:hover{
@@ -294,12 +225,13 @@ class Emoji extends React.Component {
               onMouseLeave={this.onMouseLeave.bind(this, item)}
               onClick={this.onSelect.bind(this, { type: item, text: emojis[item] })}
             >
-              <embed src={emojiSvgs[item.replace('-', '_')]}
+              <img src={emojiSvgs[item.replace('-', '_')]}
                 style={{ pointerEvents: 'none' }}
                 width={props.width}
                 height={props.height}
-                type="image/svg+xml"
-                pluginspage="http://www.adobe.com/svg/viewer/install/" />
+              // type="image/svg+xml"
+              // pluginspage="http://www.adobe.com/svg/viewer/install/"
+              />
             </span>
           })}
         </div>
@@ -311,6 +243,5 @@ class Emoji extends React.Component {
 
 Emoji.propTypes = propTypes;
 Emoji.defaultProps = defaultProps;
-window.Emoji = Emoji
 
-exports.Emoji = Emoji
+export default Emoji

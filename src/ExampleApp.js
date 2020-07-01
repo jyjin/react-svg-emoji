@@ -2,16 +2,14 @@ import React from "react";
 import "./styles.css";
 import ReactSvgEmoji from "react-svg-emojis-local/index";
 
-const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;
-
-
-
+let { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;
 
 export default class ExampleApp extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
+      lang: 'zh_CN',
       html1: '',
       value1: '',
       html2: '',
@@ -20,6 +18,8 @@ export default class ExampleApp extends React.Component {
       value3: '',
       html4: '',
       value4: '',
+      html5: '',
+      value5: '',
       visible: true,
     }
   }
@@ -27,9 +27,10 @@ export default class ExampleApp extends React.Component {
 
 
   onSelectDemo1(text, key, data) {
+    
     var index = getCursortPosition(document.querySelector('#input1'))
     var value = insertStr(this.state.value1, index, text)
-    var html = parseToEmoji(value)
+    var html = parseToEmoji(value, null, this.state.lang)
     this.setState({
       value1: value,
       html1: html,
@@ -37,7 +38,7 @@ export default class ExampleApp extends React.Component {
   }
 
   onChange1(e) {
-    var html = parseToEmoji(e.target.value)
+    var html = parseToEmoji(e.target.value, null, this.state.lang)
     this.setState({
       value1: e.target.value,
       html1: html,
@@ -47,7 +48,7 @@ export default class ExampleApp extends React.Component {
   onSelectDemo2(text, key, data) {
     var index = getCursortPosition(document.querySelector('#input2'))
     var value = insertStr(this.state.value2, index, text)
-    var html = parseToEmoji(value)
+    var html = parseToEmoji(value, null, this.state.lang)
     this.setState({
       value2: value,
       html2: html,
@@ -55,7 +56,7 @@ export default class ExampleApp extends React.Component {
   }
 
   onChange2(e) {
-    var html = parseToEmoji(e.target.value)
+    var html = parseToEmoji(e.target.value, null, this.state.lang)
     this.setState({
       value2: e.target.value,
       html2: html,
@@ -65,7 +66,7 @@ export default class ExampleApp extends React.Component {
   onSelectDemo3(text, key, data) {
     var index = getCursortPosition(document.querySelector('#input3'))
     var value = insertStr(this.state.value3, index, text)
-    var html = parseToEmoji(value)
+    var html = parseToEmoji(value, null, this.state.lang)
     this.setState({
       value3: value,
       html3: html,
@@ -73,7 +74,7 @@ export default class ExampleApp extends React.Component {
   }
 
   onChange3(e) {
-    var html = parseToEmoji(e.target.value)
+    var html = parseToEmoji(e.target.value, null, this.state.lang)
     this.setState({
       value3: e.target.value,
       html3: html,
@@ -81,9 +82,9 @@ export default class ExampleApp extends React.Component {
   }
 
   onSelectDemo4(text, key, data) {
-    var index = getCursortPosition(document.querySelector('#input2'))
+    var index = getCursortPosition(document.querySelector('#input4'))
     var value = insertStr(this.state.value4, index, text)
-    var html = parseToEmoji(value)
+    var html = parseToEmoji(value, null, this.state.lang)
     this.setState({
       value4: value,
       html4: html,
@@ -91,10 +92,28 @@ export default class ExampleApp extends React.Component {
   }
 
   onChange4(e) {
-    var html = parseToEmoji(e.target.value)
+    var html = parseToEmoji(e.target.value, null, this.state.lang)
     this.setState({
       value4: e.target.value,
       html4: html,
+    })
+  }
+
+  onSelectDemo5(text, key, data) {
+    var index = getCursortPosition(document.querySelector('#input5'))
+    var value = insertStr(this.state.value5, index, text)
+    var html = parseToEmoji(value, null, this.state.lang)
+    this.setState({
+      value5: value,
+      html5: html,
+    })
+  }
+
+  onChange5(e) {
+    var html = parseToEmoji(e.target.value, null, this.state.lang)
+    this.setState({
+      value5: e.target.value,
+      html5: html,
     })
   }
 
@@ -149,10 +168,11 @@ export default class ExampleApp extends React.Component {
         }
       },
     }
-
+    
     return (
       <div>
         <h1 style={{ color: '#2196f3', textAlign: 'center' }}>React-Svg-Emoji Demo</h1>
+
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
 
           {/* demo1 */}
@@ -160,6 +180,7 @@ export default class ExampleApp extends React.Component {
             <h3 style={{ color: '#2196f3', textAlign: 'left', marginBottom: '360px' }}>1.默认表情开关</h3>
             <Emoji
               style={style1}
+              lang={this.state.lang}
               onSelect={this.onSelectDemo1.bind(this)}
             />
             <input
@@ -173,10 +194,8 @@ export default class ExampleApp extends React.Component {
             代码：
               <pre style={{ background: "#000", padding: '10px', color: '#fff', overflow: 'auto', borderRadius: '5px' }}>
                 {` 
-import ReactSvgEmoji from "react-svg-emojis/es5";
-
+import ReactSvgEmoji from "react-svg-emoji/es5";
 const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;
-
 
 ...
 
@@ -231,6 +250,7 @@ const style = {
             <Emoji
               icon={<span> 表情</span>}
               style={style2}
+              lang={this.state.lang}
               onSelect={this.onSelectDemo2.bind(this)}
             />
             <input
@@ -248,9 +268,9 @@ const style = {
               <pre style={{ background: "#000", padding: '10px', color: '#fff', overflow: 'auto', borderRadius: '5px' }}>
 
               {`
-  import ReactSvgEmoji from "react-svg-emojis/es5";
+  import ReactSvgEmoji from "react-svg-emoji/es5";
+  const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;
 
-  const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;              
 
   ...
 
@@ -310,6 +330,7 @@ const style = {
               height={"12px"}
               iconWidth={"50px"}
               iconHeight={"50px"}
+              lang={this.state.lang}
               onSelect={this.onSelectDemo3.bind(this)}
             />
             <input
@@ -327,9 +348,9 @@ const style = {
               <pre style={{ background: "#000", padding: '10px', color: '#fff', overflow: 'auto', borderRadius: '5px' }}>
 
               {`
-  import ReactSvgEmoji from "react-svg-emojis/es5";
+  import ReactSvgEmoji from "react-svg-emoji/es5";
 
-  const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;   
+  const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;  
   
   ...
 
@@ -387,10 +408,15 @@ const style = {
   />
  
   <input
-  id='input3'
-  style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
-  value={this.state.value3}
-  onChange={this.onChange3.bind(this)}></input>
+    id='input3'
+    style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+    value={this.state.value3}
+    onChange={this.onChange3.bind(this)}
+  ></input>
+  <div style={{ margin: '10px' }} >
+    转化展示效果：
+    <p dangerouslySetInnerHTML={{ __html: this.state.html5 }} />
+  </div>
                 `}
             </pre>
           </div>
@@ -402,6 +428,7 @@ const style = {
               model="manual"
               visible={!!this.state.visible}
               style={style4}
+              lang={this.state.lang}
               onSelect={this.onSelectDemo4.bind(this)}
             />
             <button
@@ -426,9 +453,9 @@ const style = {
               <pre style={{ background: "#000", padding: '10px', color: '#fff', overflow: 'auto', borderRadius: '5px' }}>
 
               {`
-import ReactSvgEmoji from "react-svg-emojis/es5";
+import ReactSvgEmoji from "react-svg-emoji/es5";
 
-const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;              
+const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;             
     
 ...
 
@@ -483,10 +510,104 @@ const style = {
 }}>打开、关闭表情</button>
 
 <input
-id='input4'
-style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
-value={this.state.value4}
-onChange={this.onChange4.bind(this)}></input>
+  id='input4'
+  style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+  value={this.state.value4}
+  onChange={this.onChange4.bind(this)}
+></input>
+<div style={{ margin: '10px' }} >
+  转化展示效果：
+  <p dangerouslySetInnerHTML={{ __html: this.state.html5 }} />
+</div>
+ 
+                `}
+            </pre>
+          </div>
+
+          {/* demo5 */}
+          <div style={{ border: '1px solid #eee', borderRadius: '5px', padding: '0 20px 0 ', width: '45%', textAlign: 'left' }}>
+            <h3 style={{ color: '#2196f3', textAlign: 'left', marginBottom: '360px' }}>5.多语言 - 启用英文</h3>
+            <button style={{ margin: '10px' }}
+              onClick={() => {
+                this.setState({
+                  lang: this.state.lang === 'zh_CN' ? 'en_US' : 'zh_CN'
+                })
+              }}>{this.state.lang === 'zh_CN' ? 'English' : '中文'}</button>
+            <Emoji
+              lang={this.state.lang}
+              onSelect={this.onSelectDemo5.bind(this)}
+            />
+
+            <input
+              id='input5'
+              style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+              value={this.state.value5}
+              onChange={this.onChange5.bind(this)}></input>
+
+            <div style={{ margin: '10px' }} >
+              转化展示效果：
+            <p dangerouslySetInnerHTML={{ __html: this.state.html5 }} />
+            </div>
+            代码：
+              <pre style={{ background: "#000", padding: '10px', color: '#fff', overflow: 'auto', borderRadius: '5px' }}>
+
+              {`
+import ReactSvgEmoji from "react-svg-emoji/es5";
+
+const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;           
+    
+...
+
+state = {
+  lang: 'zh_CN'
+}
+
+...
+
+onSelect(text, key, data) {
+  var index = getCursortPosition(document.querySelector('#input'))
+  var value = insertStr(this.state.value, index, text)
+  var html = parseToEmoji(value, null, this.state.lang)
+  this.setState({
+    value: value,
+    html: html,
+  })
+}
+
+onChange(e) {
+  var html = parseToEmoji(e.target.value)
+  this.setState({
+    value: e.target.value,
+    html: html,
+  })
+}
+
+
+
+...
+
+<Emoji
+  lang={this.state.lang}
+  onSelect={this.onSelect.bind(this)}
+/>
+
+<button style={{ margin: '10px' }}
+onClick={() => {
+  this.setState({
+    lang: this.state.lang === 'zh_CN' ? 'en_US' : 'zh_CN'
+  })
+}}>{this.state.lang === 'zh_CN' ? 'English' : '中文'}</button>
+
+<input
+  id='input'
+  style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+  value={this.state.value}
+  onChange={this.onChange.bind(this)}
+></input>
+<div style={{ margin: '10px' }} >
+  转化展示效果：
+  <p dangerouslySetInnerHTML={{ __html: this.state.html5 }} />
+</div>
  
                 `}
             </pre>
@@ -495,7 +616,7 @@ onChange={this.onChange4.bind(this)}></input>
         </div>
 
 
-      </div>
+      </div >
 
     );
   }

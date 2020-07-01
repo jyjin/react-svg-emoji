@@ -3,8 +3,8 @@
 React emoji 表情包组件 
 
 - 支持定制所有样式
+- 可定制多语言
 - 未来可替换所有表情
-- 未来可定制多语言
 
 # 安装
 ```
@@ -285,6 +285,7 @@ const style = {
 
 ![改变尺寸、宽度](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/3.png)
 
+
 ### 4.直接展示选择层
 
 ```
@@ -361,6 +362,68 @@ const style = {
 
 ![直接展示选择层](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/4.png)
 
+
+### 5.多语言
+
+```
+import ReactSvgEmoji from "react-svg-emoji/es5";
+
+const { Emoji, parseToEmoji, insertStr, getCursortPosition } = ReactSvgEmoji;           
+    
+...
+
+state = {
+  lang: 'zh_CN'
+}
+
+...
+
+onSelect(text, key, data) {
+  var index = getCursortPosition(document.querySelector('#input'))
+  var value = insertStr(this.state.value, index, text)
+  var html = parseToEmoji(value, null, this.state.lang)
+  this.setState({
+    value: value,
+    html: html,
+  })
+}
+
+onChange(e) {
+  var html = parseToEmoji(e.target.value)
+  this.setState({
+    value: e.target.value,
+    html: html,
+  })
+}
+
+
+
+...
+
+<Emoji
+  lang={this.state.lang}
+  onSelect={this.onSelect.bind(this)}
+/>
+
+<button style={{ margin: '10px' }}
+onClick={() => {
+  this.setState({
+    lang: this.state.lang === 'zh_CN' ? 'en_US' : 'zh_CN'
+  })
+}}>{this.state.lang === 'zh_CN' ? 'English' : '中文'}</button>
+
+<input
+  id='input'
+  style={{ display: 'block', padding: "10px 10px", width: "90%", border: '1px solid #ddd', borderRadius: '4px', color: '#939393', fontSize: '16px' }}
+  value={this.state.value}
+  onChange={this.onChange.bind(this)}>
+</input>
+```
+
+效果
+
+![多语言切换](https://raw.githubusercontent.com/jyjin/react-svg-emoji/develop/public/5.png)
+
 # API
 
 - [Document English](https://github.com/jyjin/react-svg-emoji/blob/develop/README_EN.md)
@@ -370,6 +433,7 @@ const style = {
 
 Name|Type|Desc
 --- | --- | --- 
+lang|`String` (目前zh_CN/en_US的一种)|语言类别，多语言code
 icon | `DOM element`, 默认是一个svg的图标 | 你可以通过此属性定制你的入口按
 onSelect| `Function`, (text, key, data)=>{...}|选择一个表情时的回调函数. `text` 是表情图标的描述多语言text, `key` 是表情图标的唯一键, `data` 是 {key, text}的组合对象
 width| `String`, 默认24px| 单个表情的尺寸
@@ -389,7 +453,7 @@ Name|Type|Desc|
 --- | --- | --- 
 insertStr | `Function`, (source , start, target) => { return [插入后的字符串]} | 插入 `target` 字符串到 `source`字符串的`index`位置
 `getCursortPosition` | `Function`, (ele) => { return [位置索引]} | 获取ele元素的光标位置. ele是DOM元素, 你可以通过该document.getElementXXX 或者document.querySelector(XXX)获取你需要操作的DOM元素
-`parseToEmoji` | `Function`, (sourceString, style) => { return [DOM字符串]} | 转换带有一些格式如`[text]` 多语言text的字符串为DOM元素的字符串. `sourceString`需要转化的字符串, `style = {width, height}` 设置转化后展示的大小尺寸
+`parseToEmoji` | `Function`, (sourceString, style, lang) => { return [DOM字符串]} | 转换带有一些格式如`[text]` 多语言text的字符串为DOM元素的字符串. `sourceString`需要转化的字符串, `style = {width, height}`, `lang`可选，是多语言code，默认中文zh_CN 设置转化后展示的大小尺寸
 
 ### 源码中使用的默认的样式 
 
@@ -484,7 +548,41 @@ jyjin
 
 # Change Log
 
+- 1.1.7 2020.07.01
+
+  Update by jyjin
+
+  发版
+
+  + 1.0.6-beta发布正式版
+
+- 1.1.6-beta 2020.06.30 
+
+  Update by jyjin
+
+  完善样式
+  + 增加标签样式标记类名，方便用户覆盖
+
+- 1.1.3-beta - 1.1.5-beta 2020.06.29 
+
+  Update by jyjin
+
+  移动端兼容
+  + embed 更新为 img渲染
+
+- 1.1.2-beta 2020.06.29 
+
+  Update by jyjin
+
+<<<<<<< HEAD
 - 1.1.1~1.1.2 / 1.1.1-beta~1.1.2-beta 2020.06.28 
+=======
+  bug修复 + 更新功能
+  + 修复ok trumpet图标
+  + 增加多语言支持
+
+- 1.1.1 / 1.1.1-beta 2020.06.28 
+>>>>>>> develop
 
   Update by jyjin
 
@@ -503,7 +601,7 @@ jyjin
   + bug修复
   + 整理README
 
-- 1.0.0~1.0.5 / 1.0.0-beta~1.0.5-beta 2020.06.23 
+- 1.0.0 - 1.0.5 / 1.0.0-beta - 1.0.5-beta 2020.06.23 
 
   Create by jyjin
 

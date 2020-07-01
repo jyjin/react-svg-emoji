@@ -44,7 +44,7 @@ export default {
   "love-you": "爱你",
   "pray": "祈祷",
   "clap": "鼓掌",
-  "OK": "OK",
+  "ok": "OK",
   "thumbs-up": "赞",
   "thumbs-down": "踩",
   "lollipop": "棒棒糖",
