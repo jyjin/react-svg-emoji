@@ -553,6 +553,16 @@ demo run like follow pic:
 jyjin
 
 # Change Log
+
+- 1.1.7-beta - 1.1.9-beta 2020.07.02
+
+  Update by jyjin
+
+  bug fixed
+
+  + fixed propery duplicated error on ie11
+  + fix emoji height style on ie11
+
 - 1.1.7 2020.07.01
 
   Update by jyjin

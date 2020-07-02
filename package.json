@@ -1,6 +1,6 @@
 {
   "name": "react-svg-emoji",
-  "version": "1.1.7",
+  "version": "1.1.9-beta",
   "description": "React emoji by svg",
   "main": "src/index.js",
   "repository": {

@@ -79,7 +79,7 @@ export const parseToEmoji = (sourceStr, style = { width: '24px', height: '24px' 
         src="${emojiSvgs[key.replace('-', '_')]}"
         style="pointerEvents:none"
         width="${style.width}"
-        height=""${style.height}"
+        height="${style.height}"
       />
     `
       // log('sourceStr == ', sourceStr)

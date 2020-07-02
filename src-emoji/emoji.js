@@ -7,7 +7,7 @@ import IconEmoji from './svg/emojipacks.svg';
 /**
  * 默认样式
  */
-const defaultProps = {
+let defaultProps = {
   lang: 'zh_CN',
   width: 24,
   height: 24,
@@ -54,8 +54,6 @@ const defaultProps = {
       margin: '10px',
       cursor: 'pointer',
       borderRadius: '2px',
-      alignItems: 'center',
-      justifyContent: 'center',
       transition: 'all 0.1s linear',
     },
 
@@ -63,7 +61,7 @@ const defaultProps = {
 }
 
 const propTypes = {
-  icon: PropTypes.React,
+  icon: PropTypes.object,
   onSelect: PropTypes.func.isRequired,
   iconWidth: PropTypes.string,
   iconHeight: PropTypes.string,
